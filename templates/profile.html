@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Profile</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="logo">Blog Portal 🚀</div>
+
+    <div class="nav-links">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/posts">View Posts</a>
+        <a href="/create_post">Create Post</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <div style="background:#22c55e;color:white;padding:15px;margin:20px;border-radius:10px;text-align:center;font-weight:bold;">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<div class="container">
+    <div class="card">
+
+        <h1>My Profile 👤</h1>
+
+        {% if user[6] %}
+            <img src="{{ url_for('static', filename='uploads/' + user[6]) }}"
+                 style="width:140px;height:140px;border-radius:50%;object-fit:cover;margin-bottom:20px;">
+        {% endif %}
+
+        <h2>{{ user[1] }}</h2>
+        <p>{{ user[2] }}</p>
+
+        <p><strong>Bio:</strong> {{ user[5] }}</p>
+        <p><strong>Total Posts:</strong> {{ total_posts }}</p>
+        <p><strong>Total Likes:</strong> {{ total_likes }}</p>
+
+        <form method="POST" enctype="multipart/form-data">
+            <textarea name="bio" rows="5" placeholder="Write your bio...">{{ user[5] }}</textarea>
+
+            <input type="file" name="profile_pic">
+
+            <button type="submit">Update Profile 🚀</button>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>

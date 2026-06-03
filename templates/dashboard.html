@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="logo">Blog Portal 🚀</div>
+
+    <div class="nav-links">
+        <a href="/profile">Profile</a>
+        <a href="/create_post">Create Post</a>
+        <a href="/posts">View Posts</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <div style="background:#22c55e;color:white;padding:15px;margin:20px;border-radius:10px;text-align:center;font-weight:bold;">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<div class="container">
+    <div class="card">
+        <h1>Welcome, {{ username }} 🚀</h1>
+        <p>Your AWS Flask Blog Portal is running successfully.</p>
+    </div>
+</div>
+
+</body>
+</html>

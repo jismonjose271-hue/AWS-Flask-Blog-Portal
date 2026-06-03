@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Create Post</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="logo">Blog Portal 🚀</div>
+
+    <div class="nav-links">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/posts">View Posts</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card">
+
+        <h1>Create New Post ✍️</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <input type="text" name="title" placeholder="Post Title" required>
+
+            <select name="category" style="
+                width:100%;
+                padding:15px;
+                border-radius:14px;
+                margin-bottom:20px;
+                font-size:16px;">
+                <option value="Cloud">Cloud ☁️</option>
+                <option value="AI">AI 🤖</option>
+                <option value="DevOps">DevOps ⚙️</option>
+                <option value="Tech">Tech 💻</option>
+                <option value="News">News 📰</option>
+            </select>
+
+            <input type="file" name="image">
+
+            <textarea name="content" rows="10" placeholder="Write your blog content here..." required></textarea>
+
+            <button type="submit">Publish Post 🚀</button>
+
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>
