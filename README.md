@@ -155,7 +155,7 @@ Deployed using:
 
 # 👨‍💻 Author
 
-Gokul Gireesh
+Jismon Jose
 
 GitHub:
-https://github.com/gokulgireesh950-gif
+https://github.com/jismonjose271-hue
